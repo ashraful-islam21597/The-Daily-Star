@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem id="menu_circulation_root"
+            name="Circulation"
+            sequence="0"/>
+
+        <menuitem id="menu_configuration"
+            name="Configuration"
+            parent="menu_circulation_root"
+            sequence="10"/>
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+<odoo>
+    <record id="district_bd_dhaka" model="country.district">
+        <field name="name">Dhaka</field>
+        <field name="bangla_name">ঢাকা</field>
+        <field name="division_id" ref="state_bd_dhaka"/>
+    </record>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_station_entry_form" model="ir.ui.view">
+        <field name="name">station.entry.form</field>
+        <field name="model">station.entry</field>
+        <field name="arch" type="xml">
+            <form string="Station Entry">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="station_name"/>
+                            <field name="division_id" />
+                            <field name="country_id" invisible="1"/>
+                            <field name="district"/>
+                        </group>
+                        <group>
+                            <field name="bangla_name"/>
+                            <field name="division_bangla"/>
+                            <field name="district_bangla"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_station_entry_list" model="ir.ui.view">
+        <field name="name">station.entry.list</field>
+        <field name="model">station.entry</field>
+        <field name="arch" type="xml">
+            <list string="Station List">
+                <field name="code"/>
+                <field name="station_name"/>
+                <field name="bangla_name"/>
+                <field name="division_id"/>
+                <field name="district"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_station_entry" model="ir.actions.act_window">
+        <field name="name">Station Entry</field>
+        <field name="res_model">station.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_station_entry"
+              name="Station Entry"
+              parent="menu_configuration"
+              action="action_station_entry"/>
+</odoo>

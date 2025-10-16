@@ -1,0 +1,57 @@
+<odoo>
+    <record id="state_bd_dhaka" model="res.country.state">
+        <field name="name">Dhaka</field>
+        <field name="bangla_name">ঢাকা</field>
+        <field name="code">DHA</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_chattogram" model="res.country.state">
+        <field name="name">Chattogram</field>
+        <field name="bangla_name">চট্টগ্রাম</field>
+        <field name="code">CTG</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_khulna" model="res.country.state">
+        <field name="name">Khulna</field>
+        <field name="bangla_name">খুলনা</field>
+        <field name="code">KHU</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_rajshahi" model="res.country.state">
+        <field name="name">Rajshahi</field>
+        <field name="bangla_name">রাজশাহী</field>
+        <field name="code">RAJ</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_barishal" model="res.country.state">
+        <field name="name">Barishal</field>
+        <field name="bangla_name">বরিশাল</field>
+        <field name="code">BAR</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_rangpur" model="res.country.state">
+        <field name="name">Rangpur</field>
+        <field name="bangla_name">রংপুর</field>
+        <field name="code">RAN</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_sylhet" model="res.country.state">
+        <field name="name">Sylhet</field>
+        <field name="bangla_name">সিলেট</field>
+        <field name="code">SYL</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+
+    <record id="state_bd_mymensingh" model="res.country.state">
+        <field name="name">Mymensingh</field>
+        <field name="bangla_name">ময়মনসিংহ</field>
+        <field name="code">MYM</field>
+        <field name="country_id" ref="base.bd"/>
+    </record>
+</odoo>
