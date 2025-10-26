@@ -16,10 +16,14 @@
     'data': [
         'security/ir.model.access.csv',
         'data/sequence.xml',
-        'data/divisions.xml',
         'data/districts.xml',
         'views/menu.xml',
+        'views/district_entry.xml',
+        'views/division_entry.xml',
         'views/station_entry.xml',
+        'views/distribution_route_entry.xml',
+        'views/representative_entry.xml',
+        'views/police_station_entry.xml',
     ],
 }
 

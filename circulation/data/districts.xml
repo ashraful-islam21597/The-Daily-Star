@@ -1,7 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Dhaka Division -->
     <record id="district_bd_dhaka" model="country.district">
         <field name="name">Dhaka</field>
         <field name="bangla_name">ঢাকা</field>
-        <field name="division_id" ref="state_bd_dhaka"/>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
     </record>
+    <record id="district_bd_faridpur" model="country.district">
+        <field name="name">Faridpur</field>
+        <field name="bangla_name">ফরিদপুর</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_gazipur" model="country.district">
+        <field name="name">Gazipur</field>
+        <field name="bangla_name">গাজীপুর</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_gopalganj" model="country.district">
+        <field name="name">Gopalganj</field>
+        <field name="bangla_name">গোপালগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_kishoreganj" model="country.district">
+        <field name="name">Kishoreganj</field>
+        <field name="bangla_name">কিশোরগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_madaripur" model="country.district">
+        <field name="name">Madaripur</field>
+        <field name="bangla_name">মাদারীপুর</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_manikganj" model="country.district">
+        <field name="name">Manikganj</field>
+        <field name="bangla_name">মানিকগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_munshiganj" model="country.district">
+        <field name="name">Munshiganj</field>
+        <field name="bangla_name">মুন্সিগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_narayanganj" model="country.district">
+        <field name="name">Narayanganj</field>
+        <field name="bangla_name">নারায়ণগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_narsingdi" model="country.district">
+        <field name="name">Narsingdi</field>
+        <field name="bangla_name">নরসিংদী</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_rajbari" model="country.district">
+        <field name="name">Rajbari</field>
+        <field name="bangla_name">রাজবাড়ী</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_shariatpur" model="country.district">
+        <field name="name">Shariatpur</field>
+        <field name="bangla_name">শরীয়তপুর</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+    <record id="district_bd_tangail" model="country.district">
+        <field name="name">Tangail</field>
+        <field name="bangla_name">টাঙ্গাইল</field>
+        <field name="division_id" search="[('name','=','Dhaka')]"/>
+    </record>
+
+    <!-- Chattogram Division -->
+    <record id="district_bd_chattogram" model="country.district">
+        <field name="name">Chattogram</field>
+        <field name="bangla_name">চট্টগ্রাম</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_coxsbazar" model="country.district">
+        <field name="name">Cox’s Bazar</field>
+        <field name="bangla_name">কক্সবাজার</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_noakhali" model="country.district">
+        <field name="name">Noakhali</field>
+        <field name="bangla_name">নোয়াখালী</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_comilla" model="country.district">
+        <field name="name">Cumilla</field>
+        <field name="bangla_name">কুমিল্লা</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_bandarban" model="country.district">
+        <field name="name">Bandarban</field>
+        <field name="bangla_name">বান্দরবান</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_brahmanbaria" model="country.district">
+        <field name="name">Brahmanbaria</field>
+        <field name="bangla_name">ব্রাহ্মণবাড়িয়া</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_chandpur" model="country.district">
+        <field name="name">Chandpur</field>
+        <field name="bangla_name">চাঁদপুর</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_feni" model="country.district">
+        <field name="name">Feni</field>
+        <field name="bangla_name">ফেনী</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_khagrachari" model="country.district">
+        <field name="name">Khagrachari</field>
+        <field name="bangla_name">খাগড়াছড়ি</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_lakshmipur" model="country.district">
+        <field name="name">Lakshmipur</field>
+        <field name="bangla_name">লক্ষ্মীপুর</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+    <record id="district_bd_rangamati" model="country.district">
+        <field name="name">Rangamati</field>
+        <field name="bangla_name">রাঙ্গামাটি</field>
+        <field name="division_id" search="[('name','=','Chattogram')]"/>
+    </record>
+
+    <!-- Sylhet Division -->
+    <record id="district_bd_sylhet" model="country.district">
+        <field name="name">Sylhet</field>
+        <field name="bangla_name">সিলেট</field>
+        <field name="division_id" search="[('name','=','Sylhet')]"/>
+    </record>
+    <record id="district_bd_habiganj" model="country.district">
+        <field name="name">Habiganj</field>
+        <field name="bangla_name">হবিগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Sylhet')]"/>
+    </record>
+    <record id="district_bd_moulvibazar" model="country.district">
+        <field name="name">Moulvibazar</field>
+        <field name="bangla_name">মৌলভীবাজার</field>
+        <field name="division_id" search="[('name','=','Sylhet')]"/>
+    </record>
+    <record id="district_bd_sunamganj" model="country.district">
+        <field name="name">Sunamganj</field>
+        <field name="bangla_name">সুনামগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Sylhet')]"/>
+    </record>
+
+    <!-- Khulna Division -->
+    <record id="district_bd_khulna" model="country.district">
+        <field name="name">Khulna</field>
+        <field name="bangla_name">খুলনা</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_bagerhat" model="country.district">
+        <field name="name">Bagerhat</field>
+        <field name="bangla_name">বাগেরহাট</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_chuadanga" model="country.district">
+        <field name="name">Chuadanga</field>
+        <field name="bangla_name">চুয়াডাঙ্গা</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_jessore" model="country.district">
+        <field name="name">Jashore</field>
+        <field name="bangla_name">যশোর</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_jhenaidah" model="country.district">
+        <field name="name">Jhenaidah</field>
+        <field name="bangla_name">ঝিনাইদহ</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_kushtia" model="country.district">
+        <field name="name">Kushtia</field>
+        <field name="bangla_name">কুষ্টিয়া</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_magura" model="country.district">
+        <field name="name">Magura</field>
+        <field name="bangla_name">মাগুরা</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_meherpur" model="country.district">
+        <field name="name">Meherpur</field>
+        <field name="bangla_name">মেহেরপুর</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_narail" model="country.district">
+        <field name="name">Narail</field>
+        <field name="bangla_name">নড়াইল</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+    <record id="district_bd_satkhira" model="country.district">
+        <field name="name">Satkhira</field>
+        <field name="bangla_name">সাতক্ষীরা</field>
+        <field name="division_id" search="[('name','=','Khulna')]"/>
+    </record>
+
+    <!-- Rajshahi Division -->
+    <record id="district_bd_rajshahi" model="country.district">
+        <field name="name">Rajshahi</field>
+        <field name="bangla_name">রাজশাহী</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_bogra" model="country.district">
+        <field name="name">Bogura</field>
+        <field name="bangla_name">বগুড়া</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_joypurhat" model="country.district">
+        <field name="name">Joypurhat</field>
+        <field name="bangla_name">জয়পুরহাট</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_naogaon" model="country.district">
+        <field name="name">Naogaon</field>
+        <field name="bangla_name">নওগাঁ</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_natorem" model="country.district">
+        <field name="name">Natore</field>
+        <field name="bangla_name">নাটোর</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_chapainawabganj" model="country.district">
+        <field name="name">Chapainawabganj</field>
+        <field name="bangla_name">চাঁপাইনবাবগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_pabna" model="country.district">
+        <field name="name">Pabna</field>
+        <field name="bangla_name">পাবনা</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+    <record id="district_bd_sirajganj" model="country.district">
+        <field name="name">Sirajganj</field>
+        <field name="bangla_name">সিরাজগঞ্জ</field>
+        <field name="division_id" search="[('name','=','Rajshahi')]"/>
+    </record>
+
+    <!-- Barishal Division -->
+    <record id="district_bd_barguna" model="country.district">
+        <field name="name">Barguna</field>
+        <field name="bangla_name">বরগুনা</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+    <record id="district_bd_barisal" model="country.district">
+        <field name="name">Barishal</field>
+        <field name="bangla_name">বরিশাল</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+    <record id="district_bd_bhola" model="country.district">
+        <field name="name">Bhola</field>
+        <field name="bangla_name">ভোলা</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+    <record id="district_bd_jhalokathi" model="country.district">
+        <field name="name">Jhalokathi</field>
+        <field name="bangla_name">ঝালকাঠি</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+    <record id="district_bd_patuakhali" model="country.district">
+        <field name="name">Patuakhali</field>
+        <field name="bangla_name">পটুয়াখালী</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+    <record id="district_bd_pirojpur" model="country.district">
+        <field name="name">Pirojpur</field>
+        <field name="bangla_name">পিরোজপুর</field>
+        <field name="division_id" search="[('name','=','Barishal')]"/>
+    </record>
+
+
+     <!-- Rangpur Division -->
+    <record id="district_bd_rangpur" model="country.district">
+        <field name="name">Rangpur</field>
+        <field name="bangla_name">রংপুর</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_dinajpur" model="country.district">
+        <field name="name">Dinajpur</field>
+        <field name="bangla_name">দিনাজপুর</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_gaibandha" model="country.district">
+        <field name="name">Gaibandha</field>
+        <field name="bangla_name">গাইবান্ধা</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_kurigram" model="country.district">
+        <field name="name">Kurigram</field>
+        <field name="bangla_name">কুড়িগ্রাম</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_lalmonirhat" model="country.district">
+        <field name="name">Lalmonirhat</field>
+        <field name="bangla_name">লালমনিরহাট</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_nilphamari" model="country.district">
+        <field name="name">Nilphamari</field>
+        <field name="bangla_name">নীলফামারী</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_panchagarh" model="country.district">
+        <field name="name">Panchagarh</field>
+        <field name="bangla_name">পঞ্চগড়</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+    <record id="district_bd_thakurgaon" model="country.district">
+        <field name="name">Thakurgaon</field>
+        <field name="bangla_name">ঠাকুরগাঁও</field>
+        <field name="division_id" search="[('name','=','Rangpur')]"/>
+    </record>
+
+    <!-- Mymensingh Division -->
+    <record id="district_bd_mymensingh" model="country.district">
+        <field name="name">Mymensingh</field>
+        <field name="bangla_name">ময়মনসিংহ</field>
+        <field name="division_id" search="[('name','=','Mymensingh')]"/>
+    </record>
+    <record id="district_bd_jamalpur" model="country.district">
+        <field name="name">Jamalpur</field>
+        <field name="bangla_name">জামালপুর</field>
+        <field name="division_id" search="[('name','=','Mymensingh')]"/>
+    </record>
+    <record id="district_bd_netrokona" model="country.district">
+        <field name="name">Netrokona</field>
+        <field name="bangla_name">নেত্রকোণা</field>
+        <field name="division_id" search="[('name','=','Mymensingh')]"/>
+    </record>
+    <record id="district_bd_madaripur" model="country.district">
+        <field name="name">Sherpur</field>
+        <field name="bangla_name">শেরপুর</field>
+        <field name="division_id" search="[('name','=','Mymensingh')]"/>
+    </record>
+
+
 </odoo>

@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_station_entry,station.entry,model_station_entry,base.group_user,1,1,1,1
-access_country_district,country.district,model_country_district,base.group_user,1,1,1,1
+access_station_entry,station_entry,model_station_entry,base.group_user,1,1,1,1
+access_country_district,country_district,model_country_district,base.group_user,1,1,1,1
+access_country_district,country_district,model_country_district,base.group_user,1,1,1,1
+access_distribution_route_entry,distribution_route_entry,model_distribution_route_entry,base.group_user,1,1,1,1
+access_representative_entry,representative_entry,model_representative_entry,base.group_user,1,1,1,1
+access_country_police_station,country_police_station,model_country_police_station,base.group_user,1,1,1,1

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+     <!-- ✅ Inherit the existing country.state form view -->
+    <record id="view_res_country_state_form_inherit" model="ir.ui.view">
+        <field name="name">res.country.state.form.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="bangla_name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ✅ Inherit the existing country.state tree view -->
+    <record id="view_res_country_state_list_inherit" model="ir.ui.view">
+        <field name="name">res.country.state.list.inherit</field>
+        <field name="model">res.country.state</field>
+        <field name="inherit_id" ref="base.view_country_state_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="bangla_name"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="action_res_country_state" model="ir.actions.act_window">
+        <field name="name">Divisions Entry</field>
+        <field name="res_model">res.country.state</field>
+        <field name="domain">[('country_id.code', '=', 'BD')]</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+
+    <menuitem id="menu_res_country_state"
+              name="Divisions Entry"
+              parent="menu_configuration"
+              action="action_res_country_state"/>
+</odoo>

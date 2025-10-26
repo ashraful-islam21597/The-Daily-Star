@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- list View -->
+    <record id="view_representative_entry_list" model="ir.ui.view">
+        <field name="name">representative.entry.list</field>
+        <field name="model">representative.entry</field>
+        <field name="arch" type="xml">
+            <list string="Representative Entries">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="bangla_name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_representative_entry_form" model="ir.ui.view">
+        <field name="name">representative.entry.form</field>
+        <field name="model">representative.entry</field>
+        <field name="arch" type="xml">
+            <form string="Representative Entry">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <div class="oe_title d-flex align-items-center justify-content-between mb-3" style="gap: 20px;">
+                        <div class="flex-grow-1">
+<!--                            <label for="name" class="o_form_label" style="font-weight: 600;">Name</label>-->
+                            <h2 class="mt-1 mb-0">
+                                <field name="name" placeholder="Name" class="o_input o_field_char"/>
+                            </h2>
+                            <div>
+                                <field name="bangla_name" placeholder="বাংলা নাম"/>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="width: 100px; position: absolute; right: 25px; top: 10px;">
+                            <field name="photo_attachment"
+                                   widget="image"
+                                   class="oe_avatar_xl"
+                                   options="{'zoom': true}"
+                                   style="border-radius: 10px; border: 1px solid #ddd; padding: 4px; background: #fafafa;"/>
+                        </div>
+                    </div>
+
+                    <notebook>
+                        <page string="General Information">
+                            <group>
+                                <group>
+                                    <field name="district_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="nid_no"/>
+                                </group>
+                                <group>
+                                    <field name="police_station"/>
+                                    <field name="contact_no"/>
+                                    <field name="address"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Attachments">
+                            <group>
+                                <group>
+                                    <field name="bin_attachment"/>
+                                    <field name="nid_attachment"/>
+                                    <field name="nid_attachment_ref1"/>
+                                    <field name="nid_attachment_ref2"/>
+                                </group>
+                                <group>
+                                    <field name="chq_leaf_attachment"/>
+                                    <field name="trade_license_attachment"/>
+                                    <field name="tin_attachment"/>
+                                    <field name="others_attachment"/>
+                                </group>
+
+                            </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_representative_entry" model="ir.actions.act_window">
+        <field name="name">Representative Entries</field>
+        <field name="res_model">representative.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_representative_entry"
+              name="Representative Entries"
+              sequence="3"
+              parent="menu_configuration"
+              action="action_representative_entry"/>
+</odoo>

@@ -2,8 +2,39 @@
 <odoo>
     <record id="seq_station_entry" model="ir.sequence">
         <field name="name">Station Entry Sequence</field>
-        <field name="code">station.entry</field>
+        <field name="code">station.entry.seq</field>
         <field name="prefix">STN</field>
         <field name="padding">4</field>
+    </record>
+
+    <record id="seq_districts_entry" model="ir.sequence">
+        <field name="name">Districts Entry Sequence</field>
+        <field name="code">country.district.seq</field>
+        <field name="prefix">DIST-</field>
+        <field name="padding">7</field>
+    </record>
+    <record id="seq_div_entry" model="ir.sequence">
+        <field name="name">Division Entry Sequence</field>
+        <field name="code">res.country.state.seq</field>
+        <field name="prefix">DIV-</field>
+        <field name="padding">6</field>
+    </record>
+    <record id="seq_distribution_route_entry" model="ir.sequence">
+        <field name="name">Distribution Route Entry Sequence</field>
+        <field name="code">distribution.route.entry.seq</field>
+        <field name="prefix">DIST/ROUTE-</field>
+        <field name="padding">6</field>
+    </record>
+    <record id="seq_representative_entry" model="ir.sequence">
+        <field name="name">Representative Entry Sequence</field>
+        <field name="code">representative.entry.seq</field>
+        <field name="prefix">REP/ENTRY-</field>
+        <field name="padding">6</field>
+    </record>
+    <record id="seq_ps_entry" model="ir.sequence">
+        <field name="name">Police Station Entry Sequence</field>
+        <field name="code">country.police.station.entry.seq</field>
+        <field name="prefix">PS/ENTRY-</field>
+        <field name="padding">6</field>
     </record>
 </odoo>
