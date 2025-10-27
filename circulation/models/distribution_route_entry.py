@@ -1,7 +1,7 @@
 from odoo import models, fields,api,_
 
 class DistributionRouteEntry(models.Model):
-    _name = 'distribution.route.entry'
+    _name = 'distribution.route'
     _description = 'Distribution Route Entry'
     _rec_name = 'code'
 
@@ -11,6 +11,6 @@ class DistributionRouteEntry(models.Model):
 
     def create(self, vals):
         if not vals.get('code'):
-            vals['code'] = self.env['ir.sequence'].next_by_code('distribution.route.entry.seq') or 'NEW'
+            vals['code'] = self.env['ir.sequence'].next_by_code('distribution.route.seq') or 'NEW'
         return super(DistributionRouteEntry, self).create(vals)
 

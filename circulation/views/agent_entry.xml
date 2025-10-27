@@ -1,0 +1,153 @@
+<odoo>
+    <!-- list View -->
+    <record id="view_agent_entry_list" model="ir.ui.view">
+        <field name="name">agent.entry.list</field>
+        <field name="model">agent.entry</field>
+        <field name="arch" type="xml">
+            <list string="Agent Entries">
+                <field name="name"/>
+                <field name="bangla_name"/>
+                <field name="mobile_no"/>
+                <field name="district_id"/>
+                <field name="division_id"/>
+                <field name="transport_agency"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_agent_entry_form" model="ir.ui.view">
+        <field name="name">agent.entry.form</field>
+        <field name="model">agent.entry</field>
+        <field name="arch" type="xml">
+            <form string="Agent Entry">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" readonly="1"/>
+                        </h1>
+                    </div>
+                    <div class="oe_title d-flex align-items-center justify-content-between mb-3" style="gap: 20px;">
+                        <div class="flex-grow-1">
+<!--                            <label for="name" class="o_form_label" style="font-weight: 600;">Name</label>-->
+                            <h2 class="mt-1 mb-0">
+                                <field name="name" placeholder="Name" class="o_input o_field_char"/>
+                            </h2>
+                            <div>
+                                <field name="bangla_name" placeholder="বাংলা নাম"/>
+                            </div>
+                        </div>
+
+                        <div class="text-center" style="width: 100px; position: absolute; right: 25px; top: 10px;">
+                            <field name="photo_attachment"
+                                   widget="image"
+                                   class="oe_avatar_xl"
+                                   options="{'zoom': true}"
+                                   style="border-radius: 10px; border: 1px solid #ddd; padding: 4px; background: #fafafa;"/>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="nid_no"/>
+                            <field name="name_as_nid"/>
+                            <field name="division_id"/>
+                            <field name="district_id"/>
+                            <field name="dist_route"/>
+
+                        </group>
+                        <group>
+                            <field name="present_address"/>
+                            <field name="permanent_address"/>
+                            <field name="transport_agency"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Financial Info">
+                            <group>
+                                <group>
+                                    <field name="ex_discount"/>
+                                    <field name="security_money"/>
+                                    <field name="ret_category"/>
+                                    <field name="billing_cycle"/>
+                                </group>
+                                <group>
+                                    <field name="credit_limit_period"/>
+                                    <field name="credit_limit_amt"/>
+                                    <field name="discount"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Bank Info">
+                            <group>
+                                <group>
+                                    <field name="account_no"/>
+                                    <field name="bank_name"/>
+                                    <field name="branch_name"/>
+                                    <field name="routing_no"/>
+                                </group>
+                                <group>
+                                    <field name="bkash_no"/>
+                                    <field name="mobile_no"/>
+                                    <field name="alt_mobile_no"/>
+                                    <field name="email"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="References">
+                            <group string="Reference (1)">
+                                <field name="reference1_name"/>
+                                <field name="reference1_address"/>
+                                <field name="reference1_phone"/>
+                                <field name="reference1_nid"/>
+                            </group>
+                            <group string="Reference (2)">
+                                <field name="reference2_name"/>
+                                <field name="reference2_address"/>
+                                <field name="reference2_phone"/>
+                                <field name="reference2_nid"/>
+                            </group>
+                        </page>
+
+                        <page string="Documents">
+                            <group>
+                                <group>
+                                    <field name="bin_no" invisible="1"/>
+                                    <field name="bin_attachment" />
+                                    <field name="trade_license" invisible="1"/>
+                                    <field name="trade_license_attachment"/>
+                                    <field name="cheque_leaf" invisible="1"/>
+                                    <field name="chq_leaf_attachment"/>
+                                    <field name="tin_no" invisible="1"/>
+                                    <field name="tin_attachment"/>
+                                </group>
+                                <group>
+                                    <field name="nid_attachment" filename="nid_no"/>
+                                    <field name="nid_attachment_ref1"/>
+                                    <field name="nid_attachment_ref2"/>
+                                    <field name="others_attachment"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_agent_entry" model="ir.actions.act_window">
+        <field name="name">Agent Entry</field>
+        <field name="res_model">agent.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_agent_entry"
+              name="Agent Entry"
+              parent="menu_configuration"
+              action="action_agent_entry"/>
+</odoo>

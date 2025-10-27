@@ -24,6 +24,9 @@
         'views/distribution_route_entry.xml',
         'views/representative_entry.xml',
         'views/police_station_entry.xml',
+        'views/supplier_entry.xml',
+        'views/transport_entry.xml',
+        'views/agent_entry.xml',
     ],
 }
 

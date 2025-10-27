@@ -9,32 +9,44 @@
 
     <record id="seq_districts_entry" model="ir.sequence">
         <field name="name">Districts Entry Sequence</field>
-        <field name="code">country.district.seq</field>
+        <field name="code">res.country.district.seq</field>
         <field name="prefix">DIST-</field>
-        <field name="padding">7</field>
+        <field name="padding">3</field>
     </record>
     <record id="seq_div_entry" model="ir.sequence">
         <field name="name">Division Entry Sequence</field>
         <field name="code">res.country.state.seq</field>
         <field name="prefix">DIV-</field>
-        <field name="padding">6</field>
+        <field name="padding">2</field>
     </record>
     <record id="seq_distribution_route_entry" model="ir.sequence">
         <field name="name">Distribution Route Entry Sequence</field>
-        <field name="code">distribution.route.entry.seq</field>
-        <field name="prefix">DIST/ROUTE-</field>
-        <field name="padding">6</field>
+        <field name="code">distribution.route.seq</field>
+        <field name="prefix">DR-</field>
+        <field name="padding">4</field>
     </record>
     <record id="seq_representative_entry" model="ir.sequence">
         <field name="name">Representative Entry Sequence</field>
         <field name="code">representative.entry.seq</field>
-        <field name="prefix">REP/ENTRY-</field>
-        <field name="padding">6</field>
+        <field name="prefix">REP-</field>
+        <field name="padding">4</field>
     </record>
     <record id="seq_ps_entry" model="ir.sequence">
         <field name="name">Police Station Entry Sequence</field>
-        <field name="code">country.police.station.entry.seq</field>
+        <field name="code">res.country.police.station.entry.seq</field>
         <field name="prefix">PS/ENTRY-</field>
-        <field name="padding">6</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_supplier_entry" model="ir.sequence">
+        <field name="name">Supplier Entry Sequence</field>
+        <field name="code">supplier.entry.seq</field>
+        <field name="prefix">SPL-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_transport_entry" model="ir.sequence">
+        <field name="name">Transport Entry Sequence</field>
+        <field name="code">transport.info.seq</field>
+        <field name="prefix">TPT-</field>
+        <field name="padding">4</field>
     </record>
 </odoo>

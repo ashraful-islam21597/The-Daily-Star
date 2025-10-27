@@ -5,12 +5,12 @@ class StationEntry(models.Model):
     _description = 'Station Entry'
     _rec_name = 'code'
 
-    code = fields.Char(string='Code', readonly=True)
+    code = fields.Char(string="Code", readonly=True, copy=False, default='New')
     station_name = fields.Char(string='Station Name', required=True)
     bangla_name = fields.Char(string='Bangla Name')
     division_id = fields.Many2one('res.country.state', string='Division',domain="[('country_id.code', '=', 'BD')]")
     division_bangla = fields.Char(string='Division Bangla',related='division_id.bangla_name')
-    district_id = fields.Many2one('country.district',string='District',domain="[('division_id', '=',division_id)]")
+    district_id = fields.Many2one('res.country.district',string='District',domain="[('division_id', '=',division_id)]")
     district_bangla = fields.Char(string='District Bangla',related='district_id.bangla_name',store=True)
     country_id = fields.Many2one('res.country',string='Country',default=lambda self: self.env.ref('base.bd'))
 

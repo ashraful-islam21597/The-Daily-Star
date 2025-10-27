@@ -26,7 +26,7 @@ class CountryDivisions(models.Model):
                 state.bangla_name = bangla
 
 class CountryDistricts(models.Model):
-    _name = 'country.district'
+    _name = 'res.country.district'
     _description = 'Districts'
     _rec_name = 'name'
 
@@ -38,5 +38,5 @@ class CountryDistricts(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('code', 'New') == 'New':
-            vals['code'] = self.env['ir.sequence'].next_by_code('country.district.seq') or 'New'
+            vals['code'] = self.env['ir.sequence'].next_by_code('res.country.district.seq') or 'New'
         return super(CountryDistricts, self).create(vals)
