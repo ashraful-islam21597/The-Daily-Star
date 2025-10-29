@@ -3,9 +3,9 @@ from odoo.exceptions import ValidationError
 import re
 
 class AgentEntry(models.Model):
-    _name = 'agent.entry'
+    _name = 'agent.info'
     _description = 'Agent Entry'
-    _rec_name = 'code'
+    _rec_name = 'display_name'
 
     code = fields.Char(string="Code", readonly=True, copy=False, default='New')
     date = fields.Date(string='Date', default=fields.Date.context_today)
@@ -23,7 +23,7 @@ class AgentEntry(models.Model):
         ('daily', 'Daily'),
         ('monthly', 'Monthly'),
         ('none', 'None'),
-    ], string='Ret. Category')
+    ],default='daily', string='Ret. Category')
     billing_cycle = fields.Selection([
         ('daily', 'Daily'),
         ('monthly', 'Monthly'),
@@ -70,14 +70,38 @@ class AgentEntry(models.Model):
     nid_attachment_ref1 = fields.Binary(string="NID(Ref 2)", attachment=True)
     others_attachment = fields.Binary(string="Others", attachment=True)
 
+    display_name = fields.Char(string='Display Name', compute='_compute_display_name', store=True)
+
+    @api.depends('code', 'name')
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = f"[{rec.code}] {rec.name}" if rec.code and rec.name else (
+                    rec.name or rec.code)
+
+    @api.model
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = f"[{rec.code}] {rec.name}" if rec.code else rec.name
+            result.append((rec.id, name))
+        return result
+
     @api.constrains('bangla_name')
     def _check_bangla_name(self):
         bangla_pattern = re.compile(r'^[\u0980-\u09FF\s]+$')
         for rec in self:
             if rec.bangla_name and not bangla_pattern.match(rec.bangla_name):
-                raise ValidationError("⚠️ Bangla Name must contain only Bengali letters.")
+                raise ValidationError("Bangla Name must contain only Bengali letters.")
 
+    @api.model
     def create(self, vals):
-        if not vals.get('code'):
-            vals['code'] = self.env['ir.sequence'].next_by_code('supplier.entry.seq') or 'NEW'
+        if isinstance(vals, list):
+            for v in vals:
+                if not v.get('code'):
+                    v['code'] = self.env['ir.sequence'].next_by_code('agent.info.seq') or 'NEW'
+        else:
+            if not vals.get('code'):
+                vals['code'] = self.env['ir.sequence'].next_by_code('agent.info.seq') or 'NEW'
+
         return super(AgentEntry, self).create(vals)
+

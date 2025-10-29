@@ -6,4 +6,8 @@ access_representative_entry,representative_entry,model_representative_entry,base
 access_res_country_police_station,res_country_police_station,model_res_country_police_station,base.group_user,1,1,1,1
 access_supplier_entry,supplier_entry,model_supplier_entry,base.group_user,1,1,1,1
 access_transport_info,transport_info,model_transport_info,base.group_user,1,1,1,1
-access_agent_entry,agent_entry,model_agent_entry,base.group_user,1,1,1,1
+access_agent_info,agent_info,model_agent_info,base.group_user,1,1,1,1
+access_challan_entry,challan_entry,model_challan_entry,base.group_user,1,1,1,1
+access_general_sale_lines,general_sale_lines,model_general_sale_lines,base.group_user,1,1,1,1
+access_corporate_sale_lines,corporate_sale_lines,model_corporate_sale_lines,base.group_user,1,1,1,1
+access_representative_sale_lines,representative_sale_lines,model_representative_sale_lines,base.group_user,1,1,1,1

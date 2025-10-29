@@ -27,6 +27,7 @@
         'views/supplier_entry.xml',
         'views/transport_entry.xml',
         'views/agent_entry.xml',
+        'views/challan_entry.xml',
     ],
 }
 

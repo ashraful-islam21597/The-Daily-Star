@@ -8,6 +8,8 @@ class DistributionRouteEntry(models.Model):
     code = fields.Char(string="Code", readonly=True, copy=False, default='New')
     name = fields.Char(string="Name")
     bangla_name = fields.Char(string="Bangla Name")
+    transport_id = fields.Many2one('transport.info', string="Transport")
+    transport_bangla_name = fields.Char(related="transport_id.bangla_name", store=True, string="Transport")
 
     def create(self, vals):
         if not vals.get('code'):

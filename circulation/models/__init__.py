@@ -6,3 +6,4 @@ from . import police_station
 from . import supplier_entry
 from . import transport_entry
 from . import agent_entry
+from . import challan_entry

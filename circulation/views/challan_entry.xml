@@ -1,0 +1,204 @@
+<odoo>
+    <!-- list View -->
+    <record id="view_challan_entry_list" model="ir.ui.view">
+        <field name="name">challan.entry.list</field>
+        <field name="model">challan.entry</field>
+        <field name="arch" type="xml">
+            <list string="Challan Entries">
+                <field name="code"/>
+                <field name="distribution_route_id"/>
+                <field name="distribution_route_bangla_name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_challan_entry_form" model="ir.ui.view">
+        <field name="name">challan.entry.form</field>
+        <field name="model">challan.entry</field>
+        <field name="arch" type="xml">
+            <form string="Challan Entry">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" class="o_input o_field_char" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group col="3">
+
+                        <group string="Agent Info">
+                            <field name="agent_category" required="1"/>
+                            <field name="agent_id" required="agent_category=='returnable_agent'" invisible="agent_category!='returnable_agent'" domain="[('ret_category', '!=', 'none')]"/>
+                            <field name="agent_id" required="agent_category!='returnable_agent'" invisible="agent_category=='returnable_agent'" domain="[('ret_category', '=', 'none')]"/>
+                            <field name="agent_bangla_name"/>
+                            <field placeholder="Agent Code" string="Record No" name="agent_code"/>
+                            <field name="agent_address"/>
+                        </group>
+                        <group string="Station Info">
+                            <field name="station_id" required="1" string="Station"/>
+                            <field placeholder="" name="station_bangla_name"/>
+                            <field placeholder="Station Code" string="Serial No." name="station_code"/>
+                        </group>
+                        <group string="Transport Info">
+                            <field placeholder="Distribution Route" force_save="1" required="1" name="distribution_route_id"/>
+                            <field placeholder="ডিস্ট্রিবিউশন রুট" force_save="1"  name="distribution_route_bangla_name"/>
+                             <field placeholder="Transport Agency" force_save="1"  required="1" name="transport_id"/>
+                            <field placeholder="ট্রান্সপোর্ট এজেন্সী" force_save="1"  name="transport_bangla_name"/>
+                        </group>
+
+                        <group string="sales Info">
+                            <field name="sale_type"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="General Sales" name="general_sale_page" invisible="sale_type!='general_sale'">
+                            <field name="general_sale_ids">
+                                <list editable="bottom">
+                                    <field name="code" width="10%"/>
+                                    <field name="sale_qty"/>
+                                    <field name="rate"/>
+                                    <field name="specimen_qty"/>
+                                    <field name="discount"/>
+                                    <field name="extra_discount"/>
+                                    <field name="packet_number"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Corporate Sales" name="corporate_sale_page" invisible="sale_type!='corporate_sale'">
+                            <field name="corporate_sale_ids">
+                                <list editable="bottom">
+                                    <field name="code" width="10%"/>
+                                    <field name="client_name" string="Client" width="20%" />
+                                    <field name="bangla_name" string="ক্লায়েন্ট" width="20%"/>
+                                    <field name="project" width="20%"/>
+                                    <field name="sale_qty" width="5%" />
+                                    <field name="rate" width="5%" />
+                                    <field name="specimen_qty" width="5%"/>
+                                    <field name="discount" width="5%"/>
+                                    <field name="extra_discount" width="5%"/>
+                                    <field name="packet_number" width="5%"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <page string="Representative Sales" name="representative_sale_page" invisible="sale_type!='representative_sale'">
+                            <field name="representative_sale_ids">
+                                <list editable="bottom">
+                                    <field name="code" width="10%"/>
+                                    <field name="representative_name" string="Representative" width="10%"/>
+                                    <field name="bangla_name" string="রিপ্রেসেন্টেটিভ" width="10%"/>
+                                    <field name="sale_qty"/>
+                                    <field name="packet_number"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_challan_entry" model="ir.actions.act_window">
+        <field name="name">Challan Entry</field>
+        <field name="res_model">challan.entry</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_challan_entry"
+              sequence="4"
+              name="Challan Entry"
+              parent="menu_configuration"
+              action="action_challan_entry"/>
+</odoo>
+
+
+
+ <!--<group col="3">
+                        <group string="Agent Info">
+                            <field name="agent_id" required="1"/>
+                            <field placeholder="Distribution Route" required="1" name="distribution_route_id"/>
+                            <field placeholder="Transport Agency" required="1" name="transport_id"/>
+                            <field name="station_id" required="1" string="Station"/>
+                        </group>
+                        <group string="Station Info">
+                            <field name="agent_bangla_name"/>
+                            <field placeholder="ডিস্ট্রিবিউশন রুট" name="distribution_route_bangla_name"/>
+                            <field placeholder="ট্রান্সপোর্ট এজেন্সী" name="transport_bangla_name"/>
+                            <field placeholder="" name="station_bangla_name"/>
+                        </group>
+                        <group string="Transport Info">
+                            <field placeholder="Agent Code" string="Record No" name="agent_code"/>
+                            <field required="1" name="agent_address"/>
+                            <field placeholder="Station Code" string="Serial No." name="station_code"/>
+                        </group>
+                    </group>-->
+
+                    <!--<group>
+                        <div class="row">
+                            &lt;!&ndash; Agent Selection &ndash;&gt;
+                            <div class="col-5">
+                                <div id="agent_id" class="row align-items-center">
+                                    <label class="col-4 o_form_label" for="agent_id">Agent</label>
+                                    <div class="col-8">
+                                        <field name="agent_id"
+                                               options="{'no_create': True, 'no_open': True}"
+                                               style="padding:7px;"
+                                               class="o_input border rounded"/>
+                                    </div>
+                                </div>
+                                <div id="distribution_route_id" class="row align-items-center">
+                                    <label class="col-4 o_form_label" for="distribution_route_id">Distribution Route</label>
+                                    <div class="col-8">
+                                        <field name="distribution_route_id"
+                                               options="{'no_create': True, 'no_open': True}"
+                                               style="padding:7px;"
+                                               class="o_input border rounded"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            &lt;!&ndash;Bangla Name &ndash;&gt;
+                            <div class="col-3">
+                                <div class="border rounded bg-light"  style="padding:7px;">
+                                    <field name="agent_bangla_name"/>
+                                </div>
+                                <div class="border rounded bg-light"  style="padding:7px;">
+                                    <field placeholder="ডিস্ট্রিবিউশন রুট" name="distribution_route_bangla_name"/>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="col-5">
+                                    <field name="agent_id" placeholder="Search by Agent Code"
+                                           options="{'no_create': True, 'no_open': True}"
+                                           style="padding:7px;"
+                                           class="o_input border rounded"/>
+                                </div>
+                            </div>
+                        </div>
+                    </group>-->
+                    <!--                    <group>
+                        <div class="row">
+                            <div class="col-4 d-flex align-items-center">
+                                    <label class="o_form_label fw-bold me-2 mb-0" for="agent_id"
+                                           style="min-width: 90px;">Agent
+                                    </label>
+                                    <field name="agent_id"
+                                           placeholder="Agent"
+                                           options="{'no_create': True, 'no_open': True}"
+                                           class="o_input flex-grow-1 border rounded p-2 shadow-sm"/>
+                            </div>
+                            <div class="col-4">
+                                <div class="border rounded bg-white shadow-sm w-100 d-flex align-items-center"
+                                     style="min-height:10px; padding:3px 7px 2px 7px;">
+                                    <field name="agent_bangla_name"
+                                           placeholder="এজেন্ট"
+                                           class="o_input border-0 flex-grow-1"
+                                           style="font-size:15px; min-height:27px;"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </group>-->

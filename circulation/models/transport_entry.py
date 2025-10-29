@@ -7,11 +7,27 @@ from odoo.exceptions import ValidationError
 class TransportEntry(models.Model):
     _name = 'transport.info'
     _description = 'Transport Entry'
-    _rec_name = 'code'
+    _rec_name = 'display_name'
 
     code = fields.Char(string="Code", readonly=True, copy=False, default='New')
     transport_name = fields.Char(string='Transport Name', required=True)
     bangla_name = fields.Char(string='Bangla Name')
+
+    display_name = fields.Char(string='Display Name', compute='_compute_display_name', store=True)
+
+    @api.depends('code', 'transport_name')
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = f"[{rec.code}] {rec.transport_name}" if rec.code and rec.transport_name else (
+                        rec.transport_name or rec.code)
+
+    @api.model
+    def name_get(self):
+        result = []
+        for rec in self:
+            name = f"[{rec.code}] {rec.transport_name}" if rec.code else rec.transport_name
+            result.append((rec.id, name))
+        return result
 
     @api.constrains('bangla_name')
     def _check_bangla_name(self):

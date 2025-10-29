@@ -49,4 +49,34 @@
         <field name="prefix">TPT-</field>
         <field name="padding">4</field>
     </record>
+    <record id="seq_agent_info" model="ir.sequence">
+        <field name="name">Agent Entry Sequence</field>
+        <field name="code">agent.info.seq</field>
+        <field name="prefix">AGENT-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_challan_entry" model="ir.sequence">
+        <field name="name">Challan Entry Sequence</field>
+        <field name="code">challan.entry.seq</field>
+        <field name="prefix">CE-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_general_sale" model="ir.sequence">
+        <field name="name">General Sale Sequence</field>
+        <field name="code">general.sale.seq</field>
+        <field name="prefix">GS-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_corporate_sale" model="ir.sequence">
+        <field name="name">Corporate Sale Sequence</field>
+        <field name="code">corporate.sale.seq</field>
+        <field name="prefix">CS-</field>
+        <field name="padding">4</field>
+    </record>
+    <record id="seq_representative_sale" model="ir.sequence">
+        <field name="name">Representative Sale Sequence</field>
+        <field name="code">representative.sale.seq</field>
+        <field name="prefix">RS-</field>
+        <field name="padding">4</field>
+    </record>
 </odoo>

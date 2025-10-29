@@ -26,8 +26,14 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="name"/>
-                        <field name="bangla_name"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="bangla_name"/>
+                        </group>
+                        <group>
+                            <field name="transport_id"/>
+                            <field name="transport_bangla_name" string="ট্রান্সপোর্ট"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

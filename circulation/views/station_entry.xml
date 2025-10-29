@@ -13,15 +13,17 @@
                     </div>
                     <group>
                         <group>
-                            <field name="station_name"/>
+                            <field name="name" string="Station" />
                             <field name="division_id" />
                             <field name="country_id" invisible="1"/>
                             <field name="district_id"/>
+                            <field name="agent_id"/>
                         </group>
                         <group>
-                            <field name="bangla_name"/>
-                            <field name="division_bangla"/>
-                            <field name="district_bangla"/>
+                            <field name="bangla_name" string="স্টেশন"/>
+                            <field name="division_bangla" string="বিভাগ"/>
+                            <field name="district_bangla" string="জেলা"/>
+                            <field name="agent_bangla_name" string="এজেন্ট"/>
                         </group>
                     </group>
                 </sheet>
@@ -35,10 +37,11 @@
         <field name="arch" type="xml">
             <list string="Station List">
                 <field name="code"/>
-                <field name="station_name"/>
+                <field name="name"/>
                 <field name="bangla_name"/>
                 <field name="division_id"/>
                 <field name="district_id"/>
+                <field name="agent_id"/>
             </list>
         </field>
     </record>
