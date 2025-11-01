@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <t t-name="circulation.open_wiz_copy_challan.Buttons" t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//div[contains(@class, 'o_list_buttons')]" position="inside">
+            <button class="btn btn-primary ms-1" t-on-click="OpenGuestView">Copy</button>
+            <button class="btn btn-primary ms-1" t-on-click="UpdateChallanView">Update</button>
+        </xpath>
+    </t>
+</templates>
+

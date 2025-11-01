@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Report Action -->
+    <record id="label_challan_view" model="ir.actions.report">
+        <field name="name">ASSET REPORT</field>
+        <field name="model">challan.entry</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">circulation.challan_entry_label_template</field>
+        <field name="report_file">circulation.challan_entry_label_template</field>
+        <field name="print_report_name">'CHALLAN ENTRY LABEL - %s' % (object.code)</field>
+    </record>
+
+    <template id="challan_entry_label_template">
+        <t t-call="web.basic_layout">
+
+            <style>
+                .page {
+                    border: 20px solid #695f84;
+                    width: 500px;
+                    min-height: 700px;
+                    padding: 5px;
+                    box-sizing: border-box;
+                    page-break-after: always;
+                }
+
+                .report-header {
+                    width: 440px;
+                    min-height: 200px;
+                    background-color: #695f84;
+                    color: #dfdfdf;
+                    padding: 5px;
+                    margin: 5px auto 0 auto;
+                    text-align: center;
+                    font-family: Arial, sans-serif;
+                }
+
+                .report-header img {
+                    display: block;
+                    margin: 10px auto 5px auto;
+                    max-width: 280px;
+                }
+
+                .company-info {
+                    padding-bottom: 5px;
+                    margin: 5px auto;
+                    width: 80%;
+                    border-top: 1px solid #dfdfdf;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+
+                .report-body {
+                    text-align: center;
+                    width: 445px;
+                    color: #404443;
+                    margin: 80px auto 0 auto;
+                    font-size: 30px;
+                    padding: 15px;
+                    font-family: SolaimanLipi, Arial, sans-serif;
+                }
+
+                .sale-title {
+                    color: #695f84;
+                    font-size: 32px;
+                    margin-bottom: 30px;
+                    font-weight: bold;
+                }
+
+                .report-row {
+                    margin-bottom: 10px;
+                    font-weight: normal;
+                }
+
+                .copy-box {
+                    border: 1px solid black;
+                    padding: 2px 5px;
+                    min-width: 60px;
+                    text-align: center;
+                    display: inline-block;
+                }
+            </style>
+
+            <t t-foreach="docs" t-as="doc">
+
+                <!-- ========== GENERAL SALE PAGE ========== -->
+                <t t-if="doc.general_sale_ids">
+                    <t t-foreach="doc.general_sale_ids" t-as="gs">
+                        <div class="page">
+                            <div class="report-header">
+                                <img t-att-src="'/circulation/static/src/components/img/tds_logo_label.png'"/>
+                                <div class="company-info">
+                                    <t t-esc="user.company_id.partner_id.street"/><br/>
+                                    <t t-esc="user.company_id.partner_id.city"/> -
+                                    <t t-esc="user.company_id.partner_id.zip"/><br/>
+                                    Phone: <t t-esc="user.company_id.partner_id.phone"/> /
+                                    <t t-esc="user.company_id.partner_id.mobile"/>
+                                </div>
+                            </div>
+
+                            <div class="report-body">
+                                <div class="report-row">তারিখ: <t t-esc="doc.to_bangla_date(str(doc.date))"/></div>
+                                <div class="report-row"><t t-esc="doc.agent_bangla_name"/></div>
+                                <div class="report-row"><t t-esc="doc.station_bangla_name"/></div>
+                                <div class="report-row">
+                                    কপির সংখ্যা:
+                                    <span class="copy-box">
+                                        <t t-esc="doc.to_bangla_date(str(gs.sale_qty))"/> +
+                                        <t t-esc="doc.to_bangla_date(str(gs.specimen_qty))"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+
+                <!-- ========== CORPORATE SALE PAGE ========== -->
+                <t t-if="doc.corporate_sale_ids">
+                    <t t-foreach="doc.corporate_sale_ids" t-as="cs">
+                        <div class="page">
+                            <div class="report-header">
+                                <img t-att-src="'/circulation/static/src/components/img/tds_logo_label.png'"/>
+                                <div class="company-info">
+                                    <t t-esc="user.company_id.partner_id.street"/><br/>
+                                    <t t-esc="user.company_id.partner_id.city"/> -
+                                    <t t-esc="user.company_id.partner_id.zip"/><br/>
+                                    Phone: <t t-esc="user.company_id.partner_id.phone"/> /
+                                    <t t-esc="user.company_id.partner_id.mobile"/>
+                                </div>
+                            </div>
+
+                            <div class="report-body">
+                                <div class="report-row">তারিখ: <t t-esc="doc.to_bangla_date(str(doc.date))"/></div>
+<!--                                <div class="report-row"><t t-esc="doc.agent_bangla_name"/></div>-->
+                                <div class="report-row"><t t-esc="cs.bangla_name"/></div>
+                                <div class="report-row">
+                                    কপির সংখ্যা:
+                                    <span class="copy-box">
+                                        <t t-esc="doc.to_bangla_date(str(cs.sale_qty))"/> +
+                                        <t t-esc="doc.to_bangla_date(str(cs.specimen_qty))"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+
+                <!-- ========== REPRESENTATIVE SALE PAGE ========== -->
+                <t t-if="doc.representative_sale_ids">
+                    <t t-foreach="doc.representative_sale_ids" t-as="rs">
+                        <div class="page">
+                            <div class="report-header">
+                                <img t-att-src="'/circulation/static/src/components/img/tds_logo_label.png'"/>
+                                <div class="company-info">
+                                    <t t-esc="user.company_id.partner_id.street"/><br/>
+                                    <t t-esc="user.company_id.partner_id.city"/> -
+                                    <t t-esc="user.company_id.partner_id.zip"/><br/>
+                                    Phone: <t t-esc="user.company_id.partner_id.phone"/> /
+                                    <t t-esc="user.company_id.partner_id.mobile"/>
+                                </div>
+                            </div>
+
+                            <div class="report-body">
+                                <div class="report-row">তারিখ: <t t-esc="doc.to_bangla_date(str(doc.date))"/></div>
+<!--                                <div class="report-row"><t t-esc="doc.agent_bangla_name"/></div>-->
+                                <div class="report-row"><t t-esc="rs.bangla_name"/></div>
+                                <div class="report-row">
+                                    কপির সংখ্যা:
+                                    <span class="copy-box">
+                                        <t t-esc="doc.to_bangla_date(str(rs.sale_qty))"/> +
+                                        <t t-esc="doc.to_bangla_date(str(0))"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+
+            </t>
+        </t>
+    </template>
+</odoo>

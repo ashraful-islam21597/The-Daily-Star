@@ -18,14 +18,14 @@ class TransportEntry(models.Model):
     @api.depends('code', 'transport_name')
     def _compute_display_name(self):
         for rec in self:
-            rec.display_name = f"[{rec.code}] {rec.transport_name}" if rec.code and rec.transport_name else (
+            rec.display_name = f"{rec.transport_name}[{rec.code}]" if rec.code and rec.transport_name else (
                         rec.transport_name or rec.code)
 
     @api.model
     def name_get(self):
         result = []
         for rec in self:
-            name = f"[{rec.code}] {rec.transport_name}" if rec.code else rec.transport_name
+            name = f"{rec.transport_name}[{rec.code}]" if rec.code else rec.transport_name
             result.append((rec.id, name))
         return result
 

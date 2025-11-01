@@ -28,6 +28,16 @@
         'views/transport_entry.xml',
         'views/agent_entry.xml',
         'views/challan_entry.xml',
+        'wizards/copy_challan_wizard.xml',
+        'wizards/update_challan_wizard.xml',
+        'reports/label/challan_entry_label_pdf.xml',
+        # 'reports/reports_actions.xml',
     ],
+    'assets': {
+            'web.assets_backend': [
+                'circulation/static/src/components/js/**/*.js',
+                'circulation/static/src/components/xml/**/*.xml'
+            ],
+        },
 }
 

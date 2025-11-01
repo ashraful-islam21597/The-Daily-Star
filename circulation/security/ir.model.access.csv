@@ -11,3 +11,5 @@ access_challan_entry,challan_entry,model_challan_entry,base.group_user,1,1,1,1
 access_general_sale_lines,general_sale_lines,model_general_sale_lines,base.group_user,1,1,1,1
 access_corporate_sale_lines,corporate_sale_lines,model_corporate_sale_lines,base.group_user,1,1,1,1
 access_representative_sale_lines,representative_sale_lines,model_representative_sale_lines,base.group_user,1,1,1,1
+access_copy_challan_entry_wizard,copy_challan_entry_wizard,model_copy_challan_entry_wizard,base.group_user,1,1,1,1
+access_update_challan_entry_wizard,update_challan_entry_wizard,model_update_challan_entry_wizard,base.group_user,1,1,1,1

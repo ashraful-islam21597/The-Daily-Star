@@ -10,6 +10,7 @@ class ChallanEntry(models.Model):
     _rec_name = 'code'
 
     code = fields.Char(string="Code", readonly=True, copy=False, default='New')
+    date = fields.Date(string="Date",default=fields.date.today())
     agent_category = fields.Selection([
         ('non_returnable_agent', 'Non Returnable Agent'),
         ('returnable_agent', 'Returnable Agent')
@@ -38,6 +39,19 @@ class ChallanEntry(models.Model):
     representative_sale_ids = fields.One2many('representative.sale.lines','challan_entry_id')
     agent_code = fields.Char(related='agent_id.code', store=True)
     station_code = fields.Char(related='station_id.code', store=True)
+    total_general_sale_qty = fields.Float(string="General Sale Qty", compute="_compute_general_sales_summary")
+    total_general_discount = fields.Float(string="General Sale Discount", compute="_compute_general_sales_summary")
+
+    @api.depends('general_sale_ids.sale_qty', 'general_sale_ids.discount')
+    def _compute_general_sales_summary(self):
+        for rec in self:
+            rec.total_general_sale_qty = sum(line.sale_qty for line in rec.general_sale_ids)
+            rec.total_general_discount = sum(line.discount for line in rec.general_sale_ids)
+
+    def to_bangla_date(self, date_str):
+        bangla_digits = {'0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮',
+                         '9': '৯'}
+        return ''.join(bangla_digits.get(c, c) for c in date_str)
 
     # @api.onchange('agent_category')
     # def _onchange_agent_category(self):
@@ -50,6 +64,10 @@ class ChallanEntry(models.Model):
     #             self.agent_id = False
     #             domain = [('ret_category', '=', 'none')]
     #             return {'domain': {'agent_id': domain}}
+
+    def action_print_report(self):
+        rpt_template = 'circulation.label_challan_view'
+        return self.env.ref(rpt_template).with_context(rpt_name=f'LABEL').report_action(self)
 
 
 
@@ -135,8 +153,8 @@ class RepresentativeSaleLines(models.Model):
     _rec_name = 'code'
 
     code = fields.Char(string="Code", readonly=True, copy=False, default='New')
-    representative_name = fields.Char(string="Client")
-    bangla_name = fields.Char(string="রিপ্রেসেন্টেটিভের নাম")
+    representative_id = fields.Many2one("representative.entry",string="Representative")
+    bangla_name = fields.Char(related="representative_id.bangla_name",string="রিপ্রেসেন্টেটিভের নাম")
     challan_entry_id = fields.Many2one('challan.entry')
     sale_qty = fields.Integer(string="Sales Quantity")
     packet_number = fields.Integer(string="Packet No")

@@ -20,10 +20,22 @@ class CountryDivisions(models.Model):
             'Sylhet': 'সিলেট',
             'Mymensingh': 'ময়মনসিংহ',
         }
+
+        bd_country = self.env['res.country'].search([('code', '=', 'BD')], limit=1)
+        if not bd_country:
+            return
+
         for name, bangla in updates.items():
-            state = self.search([('name', '=', name), ('country_id.code', '=', 'BD')], limit=1)
+            state = self.search([('name', '=', name), ('country_id', '=', bd_country.id)], limit=1)
             if state:
                 state.bangla_name = bangla
+            else:
+                self.create({
+                    'name': name,
+                    'code': name[:3].upper(),
+                    'country_id': bd_country.id,
+                    'bangla_name': bangla,
+                })
 
 class CountryDistricts(models.Model):
     _name = 'res.country.district'

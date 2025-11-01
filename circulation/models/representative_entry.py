@@ -13,7 +13,7 @@ class RepresentativeEntry(models.Model):
     name = fields.Char(string="Name")
     bangla_name = fields.Char(string="Bangla Name")
     partner_id = fields.Many2one('res.partner',string="Contact Person")
-    contact_no = fields.Many2one('res.partner',string="Contact No")
+    contact_no = fields.Char(string="Contact No")
     district_id = fields.Many2one('res.country.district',string='District')
     police_station = fields.Many2one('res.country.police.station',string='Police Station')
     division_id = fields.Many2one('res.country.state', related="district_id.division_id", store=True)
